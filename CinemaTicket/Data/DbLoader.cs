@@ -39,51 +39,92 @@ namespace CinemaTicket.Data
 
             var defaultHalls = new List<Hall>
             {
-                new Hall { Name = "Hall 1", TotalSeats = 56, ReservedSeats = "A2" },
-                new Hall { Name = "Hall 2", TotalSeats = 56, ReservedSeats = "A1, A2" }
+                new Hall { Name = "Hall 1", TotalSeats = 84 },
+                new Hall { Name = "Hall 2", TotalSeats = 84 },
+                new Hall { Name = "Hall 3", TotalSeats = 84 },
+                new Hall { Name = "Hall 4", TotalSeats = 84 },
+                new Hall { Name = "Hall 5", TotalSeats = 84 },
+                new Hall { Name = "Hall 6", TotalSeats = 84 }
             };
 
             context.Halls.AddRange(defaultHalls);
             context.SaveChanges();
 
-            var movie1 = context.Movies.FirstOrDefault(m => m.Title == "Godzilla x Kong: The New Empire");
-            var movie2 = context.Movies.FirstOrDefault(m => m.Title == "Dune: Part Two");
-            var hall1 = context.Halls.FirstOrDefault(h => h.Name == "Hall 1");
-            var hall2 = context.Halls.FirstOrDefault(h => h.Name == "Hall 2");
+            Random random = new Random();
 
-            if (movie1 == null || movie2 == null || hall1 == null || hall2 == null)
+            foreach (var movie in defaultMovies)
             {
-                throw new InvalidOperationException("Movies or halls are not found in the database.");
-            }
+                var hallIndex = 0;
 
-            var defaultSessions = new List<Session>()
-            {
-                new Session {
-                    Date = new DateTime(2024, 4, 15, 13, 0, 0),
-                    Features = "3D, Subtitled",
-                    Duration = 160,
-                    AssignedMovieId = movie1.Id,
-                    AssignedHallId = hall1.Id
-                },
-                new Session {
-                    Date = new DateTime(2024, 4, 15, 16, 0, 0),
-                    Features = "3D, Dubbing",
-                    Duration = 160,
-                    AssignedMovieId = movie2.Id,
-                    AssignedHallId = hall2.Id
+                DateTime startDate = DateTime.Now;
+                int numberOfDays = 7;
+                int intervalBetweenSessionsInMinutes = 90;
+
+                var sessionsToAdd = new List<Session>();
+
+                for (int i = 0; i < numberOfDays; i++)
+                {
+                    DateTime currentDate = startDate.AddDays(i);
+                    DateTime startTime = currentDate.Date.AddHours(13);
+
+                    for (int j = 0; j < 3; j++)
+                    {
+                        var session = new Session
+                        {
+                            Date = startTime.AddMinutes(j * intervalBetweenSessionsInMinutes),
+                            Features = (movie.Title == "Godzilla x Kong: The New Empire") ? "3D, Subtitled" :
+                                       (movie.Title == "Dune: Part Two") ? "2D, Dubbing" :
+                                       (movie.Title == "Ghostbusters: Frozen Empire") ? "3D, Subtitled" :
+                                       (movie.Title == "American Fiction") ? "2D, Subtitled" : "",
+                            Duration = movie.Duration,
+                            AssignedMovieId = movie.Id,
+                            AssignedHallId = defaultHalls[hallIndex].Id
+                        };
+
+                        int totalSeats = defaultHalls[hallIndex].TotalSeats;
+                        int luckyNumber = random.Next(totalSeats);
+
+                        var reservedSeatIndexes = new HashSet<int>();
+
+                        while (reservedSeatIndexes.Count < totalSeats && reservedSeatIndexes.Count < luckyNumber)
+                        {
+                            int row = random.Next(7) + 1;
+                            int seatNumber = random.Next(12) + 1;
+
+                            int seatIndex = (row - 1) * 12 + seatNumber;
+
+                            if (!reservedSeatIndexes.Contains(seatIndex))
+                            {
+                                reservedSeatIndexes.Add(seatIndex);
+                            }
+                        }
+
+                        List<string> markedSeats = new List<string>();
+
+                        string[] rows = { "A", "B", "C", "D", "E", "F", "G" };
+
+                        foreach (int index in reservedSeatIndexes)
+                        {
+                            int row = (index - 1) / 12;
+                            int seat = (index - 1) % 12 + 1;
+
+                            string seatName = $"{rows[row]}{seat}";
+
+                            markedSeats.Add(seatName);
+                        }
+
+                        string markedSeatsString = string.Join(",", markedSeats);
+                        session.ReservedSeats = markedSeatsString;
+
+                        sessionsToAdd.Add(session);
+                        hallIndex = (hallIndex + 1) % defaultHalls.Count;
+                    }
                 }
-            };
 
-            context.Sessions.AddRange(defaultSessions);
+                context.Sessions.AddRange(sessionsToAdd);
+            }
 
-            try
-            {
-                context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error adding sessions: {ex.Message}");
-            }
+            context.SaveChanges();
         }
 
     }
