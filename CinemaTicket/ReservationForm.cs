@@ -169,6 +169,11 @@ namespace CinemaTicket
                     DrawSeats(selectedSession.ReservedSeats, tabPage2);
                 }
             }
+
+            if (!selectedSeats.Any())
+            {
+                getDetailsBtn.Enabled = false;
+            }
         }
 
         private void DrawSeats(string _reservedSeats, TabPage tabPage)
@@ -333,7 +338,7 @@ namespace CinemaTicket
             tab3 = true;
             tabControl1.SelectedTab = tabPage3;
 
-            int startX1 = 260;
+            int startX1 = 245;
             int startY1 = 130;
             int startX2 = 350;
             int startY2 = 125;
@@ -493,6 +498,12 @@ namespace CinemaTicket
         public void minimize_MouseLeave(object sender, EventArgs e)
         {
             minimizeButton.BackColor = Color.FromArgb(13, 14, 20);
+        }
+
+        private void copyButton_Click(object sender, EventArgs e)
+        {
+            string copyText = $"Ticket ID: {idLbl.Text}, Movie: {movieTitleLbl.Text}, Date: {dateLbl.Text}, Time: {timeLbl.Text}, Seat(s): {seatsLbl.Text}, Hall: {hallLbl.Text}.";
+            Clipboard.SetText(copyText);
         }
 
         public void close_Click(object sender, EventArgs e)
