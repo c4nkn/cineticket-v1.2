@@ -10,8 +10,8 @@ namespace CinemaTicket.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<string> AllSeats { get; set; } = new List<string>();
-        public List<string> ReservedSeats { get; set; } = new List<string>();
+        public int TotalSeats { get; set; }
+        public string ReservedSeats { get; set; }
 
         public ICollection<Session> Sessions { get; set; }
     }

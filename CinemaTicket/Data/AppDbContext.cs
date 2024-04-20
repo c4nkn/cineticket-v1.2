@@ -11,8 +11,8 @@ namespace CinemaTicket.Data
     public class AppDbContext : DbContext
     {
         public DbSet<Movie> Movies { get; set; }
-        public DbSet<Session> Sessions { get; set; }
         public DbSet<Hall> Halls { get; set; }
+        public DbSet<Session> Sessions { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
