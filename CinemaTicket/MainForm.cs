@@ -93,8 +93,8 @@ namespace CinemaTicket
         {
             int startX1 = 35;
             int startX2 = 95;
-            int startY1 = 280;
-            int startY2 = 265;
+            int startY1 = 300;
+            int startY2 = 285;
 
             for (int i = 0; i < allMovies.Count; i++)
             {

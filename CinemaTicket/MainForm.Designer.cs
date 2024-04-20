@@ -35,6 +35,7 @@
             this.closeButton = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +47,7 @@
             this.panel1.Controls.Add(this.closeButton);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(900, 30);
+            this.panel1.Size = new System.Drawing.Size(925, 30);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
@@ -67,7 +68,7 @@
             this.minimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.minimizeButton.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.minimizeButton.ForeColor = System.Drawing.Color.DarkGray;
-            this.minimizeButton.Location = new System.Drawing.Point(829, 0);
+            this.minimizeButton.Location = new System.Drawing.Point(854, 0);
             this.minimizeButton.Name = "minimizeButton";
             this.minimizeButton.Size = new System.Drawing.Size(35, 30);
             this.minimizeButton.TabIndex = 2;
@@ -82,7 +83,7 @@
             this.closeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.closeButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeButton.ForeColor = System.Drawing.Color.Firebrick;
-            this.closeButton.Location = new System.Drawing.Point(864, 0);
+            this.closeButton.Location = new System.Drawing.Point(889, 0);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(36, 30);
             this.closeButton.TabIndex = 1;
@@ -100,7 +101,7 @@
             this.label5.Image = ((System.Drawing.Image)(resources.GetObject("label5.Image")));
             this.label5.Location = new System.Drawing.Point(0, 30);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(900, 210);
+            this.label5.Size = new System.Drawing.Size(925, 189);
             this.label5.TabIndex = 8;
             this.label5.Text = "Welcome!\r\nChoose whatever you want to watch and get your ticket now.";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,19 +114,31 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gray;
-            this.label3.Location = new System.Drawing.Point(381, 610);
+            this.label3.Location = new System.Drawing.Point(393, 678);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(138, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "developed by can with ❤";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(410, 245);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 20);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Now Showing";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
-            this.ClientSize = new System.Drawing.Size(900, 632);
+            this.ClientSize = new System.Drawing.Size(925, 700);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel1);
@@ -152,6 +165,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
     }
 }
 
