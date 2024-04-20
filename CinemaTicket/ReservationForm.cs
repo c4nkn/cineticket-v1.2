@@ -24,6 +24,8 @@ namespace CinemaTicket
         public List<string> selectedSeats = new List<string>();
         public int selectedMovie, selectedSession, selectedHall, newId;
         bool tab2, tab3, tab4, isSessionSelected = false;
+        private bool mouseDown;
+        private Point lastLocation;
 
         public ReservationForm(int _selectedMovie)
         {
@@ -73,9 +75,12 @@ namespace CinemaTicket
             {
                 ClearSeatTab();
 
-                foreach (var seat in selectedSeats)
+                if (selectedSeats.Any())
                 {
-                    selectedSeats.Remove(seat);
+                    foreach (var seat in selectedSeats)
+                    {
+                        selectedSeats.Remove(seat);
+                    }
                 }
 
                 tab2 = false;
@@ -473,6 +478,58 @@ namespace CinemaTicket
                     e.Graphics.DrawString(tabControl1.TabPages[i].Text, fntTab, fontColor, tabTextArea, StrFormat);
                 }
             }
+        }
+
+        public void minimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        public void minimize_MouseEnter(object sender, EventArgs e)
+        {
+            minimizeButton.BackColor = Color.FromArgb(37, 38, 44);
+        }
+
+        public void minimize_MouseLeave(object sender, EventArgs e)
+        {
+            minimizeButton.BackColor = Color.FromArgb(13, 14, 20);
+        }
+
+        public void close_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        public void close_MouseEnter(object sender, EventArgs e)
+        {
+            closeButton.BackColor = Color.FromArgb(37, 38, 44);
+        }
+
+        public void close_MouseLeave(object sender, EventArgs e)
+        {
+            closeButton.BackColor = Color.FromArgb(13, 14, 20);
+        }
+
+        public void ReservationForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        public void ReservationForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        public void ReservationForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
         }
     }
 }

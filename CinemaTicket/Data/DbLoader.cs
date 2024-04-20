@@ -32,6 +32,10 @@ namespace CinemaTicket.Data
                     Title = "American Fiction",
                     Thumbnail = "..\\..\\Images\\AmericanFiction.jpg",
                     Duration = 117, Genre = "Comedy, Drama", ImdbRating = 7.6 },
+                new Movie {
+                    Title = "Kung Fu Panda 4",
+                    Thumbnail = "..\\..\\Images\\KungFuPanda4.jpg",
+                    Duration = 94, Genre = "Action, Adventure, Animation", ImdbRating = 6.4 },
             };
 
             context.Movies.AddRange(defaultMovies);

@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservationForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.minimizeButton = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.forMovie = new System.Windows.Forms.Label();
             this.getSeatsBtn = new System.Windows.Forms.Button();
@@ -55,6 +56,7 @@
             this.lblSelectedSeats = new System.Windows.Forms.Label();
             this.screen = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tab3Footer = new System.Windows.Forms.Label();
             this.tab3Title = new System.Windows.Forms.Label();
             this.tab3Detail = new System.Windows.Forms.Label();
             this.showSummaryBtn = new System.Windows.Forms.Button();
@@ -77,8 +79,6 @@
             this.hallTitle = new System.Windows.Forms.Label();
             this.seatsTitle = new System.Windows.Forms.Label();
             this.dateTitle = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tab3Footer = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -99,6 +99,9 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(900, 30);
             this.panel1.TabIndex = 1;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ReservationForm_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ReservationForm_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ReservationForm_MouseUp);
             // 
             // pictureBox1
             // 
@@ -121,6 +124,9 @@
             this.minimizeButton.TabIndex = 2;
             this.minimizeButton.Text = "―";
             this.minimizeButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.minimizeButton.Click += new System.EventHandler(this.minimize_Click);
+            this.minimizeButton.MouseEnter += new System.EventHandler(this.minimize_MouseEnter);
+            this.minimizeButton.MouseLeave += new System.EventHandler(this.minimize_MouseLeave);
             // 
             // closeButton
             // 
@@ -133,6 +139,9 @@
             this.closeButton.TabIndex = 1;
             this.closeButton.Text = "✖";
             this.closeButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.closeButton.Click += new System.EventHandler(this.close_Click);
+            this.closeButton.MouseEnter += new System.EventHandler(this.close_MouseEnter);
+            this.closeButton.MouseLeave += new System.EventHandler(this.close_MouseLeave);
             // 
             // tabControl1
             // 
@@ -164,6 +173,20 @@
             this.tabPage1.Size = new System.Drawing.Size(892, 556);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sessions";
+            this.tabPage1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ReservationForm_MouseDown);
+            this.tabPage1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ReservationForm_MouseMove);
+            this.tabPage1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ReservationForm_MouseUp);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label1.Location = new System.Drawing.Point(381, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(131, 25);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Select Session";
             // 
             // label4
             // 
@@ -208,15 +231,15 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SlateBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(8);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SlateBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.SlateBlue;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Padding = new System.Windows.Forms.Padding(8);
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.SlateBlue;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -225,15 +248,15 @@
             this.Features,
             this.Availability});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(32)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(32)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -241,18 +264,18 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(32)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(32)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -305,6 +328,9 @@
             this.tabPage2.Size = new System.Drawing.Size(892, 556);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Seats";
+            this.tabPage2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ReservationForm_MouseDown);
+            this.tabPage2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ReservationForm_MouseMove);
+            this.tabPage2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ReservationForm_MouseUp);
             // 
             // tab2Title
             // 
@@ -377,6 +403,20 @@
             this.tabPage3.Size = new System.Drawing.Size(892, 556);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Details";
+            this.tabPage3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ReservationForm_MouseDown);
+            this.tabPage3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ReservationForm_MouseMove);
+            this.tabPage3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ReservationForm_MouseUp);
+            // 
+            // tab3Footer
+            // 
+            this.tab3Footer.AutoSize = true;
+            this.tab3Footer.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tab3Footer.ForeColor = System.Drawing.Color.Gray;
+            this.tab3Footer.Location = new System.Drawing.Point(377, 540);
+            this.tab3Footer.Name = "tab3Footer";
+            this.tab3Footer.Size = new System.Drawing.Size(138, 13);
+            this.tab3Footer.TabIndex = 25;
+            this.tab3Footer.Text = "developed by can with ❤";
             // 
             // tab3Title
             // 
@@ -438,6 +478,9 @@
             this.tabPage4.Size = new System.Drawing.Size(892, 556);
             this.tabPage4.TabIndex = 2;
             this.tabPage4.Text = "Summary";
+            this.tabPage4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ReservationForm_MouseDown);
+            this.tabPage4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ReservationForm_MouseMove);
+            this.tabPage4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ReservationForm_MouseUp);
             // 
             // tab4Title
             // 
@@ -637,28 +680,6 @@
             this.dateTitle.Size = new System.Drawing.Size(40, 12);
             this.dateTitle.TabIndex = 0;
             this.dateTitle.Text = "D A T E ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(381, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 25);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Select Session";
-            // 
-            // tab3Footer
-            // 
-            this.tab3Footer.AutoSize = true;
-            this.tab3Footer.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tab3Footer.ForeColor = System.Drawing.Color.Gray;
-            this.tab3Footer.Location = new System.Drawing.Point(377, 540);
-            this.tab3Footer.Name = "tab3Footer";
-            this.tab3Footer.Size = new System.Drawing.Size(138, 13);
-            this.tab3Footer.TabIndex = 25;
-            this.tab3Footer.Text = "developed by can with ❤";
             // 
             // ReservationForm
             // 
