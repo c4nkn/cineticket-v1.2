@@ -283,7 +283,7 @@ namespace CinemaTicket
                 {
                     var reservation = new Reservation
                     {
-                        Id = newId,
+                        Id = newId++,
                         Price = 25,
                         SelectedSeat = selectedSeats[i],
                         SelectedMovieId = selectedMovie,
