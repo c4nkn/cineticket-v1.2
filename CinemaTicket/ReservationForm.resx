@@ -134,6 +134,17 @@
         RK5CYII=
 </value>
   </data>
+  <data name="copyButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAD5SURBVDhP7ZM9
+        CsJAEIUDNjYeQa09gJXoIQTRysIbeAjtRfuUCfkpAgEPItZ2eolA/F4yAX9ibCx98Nidybw3G3bWEaIo
+        WoVheIYZzD/wCg9JknQKUQUTS7iDCzirI3Vr1htMTVqChDrvLGxEHMcTanPf9weWKgyyIAjmFjaCupYM
+        4BSzPutWBkrMrOYrqnpj/jf4kcFVQ2LfG+F5XlcirnD0aHCAmrCx7tlq32DiI80uruu22ZcGmm02qYJv
+        lJjuQxkSa+yzwl3QeJKYwur/nqhjq7OV6w3tOfHJwhIkenXiFy4kZtUDXJq0BIkNrD3+A/V2TqyIHecO
+        UsVzPK0ehpoAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -149,27 +160,4 @@
   <metadata name="Availability.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFOSURBVDhPlZPP
-        KwVhFIanRDfJ3kKUDSklZSFFtnZKLG3ssfAH2LBSLPwPZmMxmdX8MLOQxSwpSxa4NlLY6GY8Z7wxrkl3
-        3nqa77znfO93v+mO06miKJqCmyAIJmTVUxzHDQJCeEySZEx2PXme10vAGTQJHJVdT77v9xNwAbeEDMsu
-        7jgOS/y8QVlOmqYDeIthGC63sY7/SkBaJLLwMXKxY5t5bsN7ya/i2QaP4IGQWdd1u2wzJyzgffDcsHub
-        Vxaz8/TfYN8C7mFTvULUBwydq/wlQmfov8BxcSCL3O6lfiE2u4bKb/F+Jpl/Yv4ky7Luwuw0gJkR2wyn
-        nNwju1bAEN4uNGR9qSqAes+GVf4vAloMr6islL0s5q4Jnpb1IxpXcKiyUvTnIK/8Bjh9jWbLQliv2nXK
-        4G9Bk7WnLX+lkEsFtf/b7sDC+zRekuN8AioQSrvoJzSGAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAD5SURBVDhP7ZM9
-        CsJAEIUDNjYeQa09gJXoIQTRysIbeAjtRfuUCfkpAgEPItZ2eolA/F4yAX9ibCx98Nidybw3G3bWEaIo
-        WoVheIYZzD/wCg9JknQKUQUTS7iDCzirI3Vr1htMTVqChDrvLGxEHMcTanPf9weWKgyyIAjmFjaCupYM
-        4BSzPutWBkrMrOYrqnpj/jf4kcFVQ2LfG+F5XlcirnD0aHCAmrCx7tlq32DiI80uruu22ZcGmm02qYJv
-        lJjuQxkSa+yzwl3QeJKYwur/nqhjq7OV6w3tOfHJwhIkenXiFy4kZtUDXJq0BIkNrD3+A/V2TqyIHecO
-        UsVzPK0ehpoAAAAASUVORK5CYII=
-</value>
-  </data>
 </root>

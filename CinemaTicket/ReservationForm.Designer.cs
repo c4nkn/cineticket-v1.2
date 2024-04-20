@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservationForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.minimizeButton = new System.Windows.Forms.Label();
@@ -41,44 +41,44 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.forMovie = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.getSeatsBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.getDetailsBtn = new System.Windows.Forms.Button();
-            this.lblSelectedSeats = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.showSummaryBtn = new System.Windows.Forms.Button();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.label18 = new System.Windows.Forms.Label();
-            this.imdbRatingLbl = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.movieTitleLbl = new System.Windows.Forms.Label();
-            this.movieThumbnail = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.idLbl = new System.Windows.Forms.Label();
-            this.hallLbl = new System.Windows.Forms.Label();
-            this.dateLbl = new System.Windows.Forms.Label();
-            this.timeLbl = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.seatsLbl = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Features = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Availability = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tab2Title = new System.Windows.Forms.Label();
+            this.tab2Footer = new System.Windows.Forms.Label();
+            this.getDetailsBtn = new System.Windows.Forms.Button();
+            this.lblSelectedSeats = new System.Windows.Forms.Label();
+            this.screen = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tab3Title = new System.Windows.Forms.Label();
+            this.tab3Detail = new System.Windows.Forms.Label();
+            this.showSummaryBtn = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tab4Title = new System.Windows.Forms.Label();
+            this.imdbRatingLbl = new System.Windows.Forms.Label();
+            this.imdbBadge = new System.Windows.Forms.Label();
+            this.movieTitleLbl = new System.Windows.Forms.Label();
+            this.movieThumbnail = new System.Windows.Forms.PictureBox();
+            this.copyButton = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.confirmBtn = new System.Windows.Forms.Button();
+            this.idLbl = new System.Windows.Forms.Label();
+            this.hallLbl = new System.Windows.Forms.Label();
+            this.dateLbl = new System.Windows.Forms.Label();
+            this.timeLbl = new System.Windows.Forms.Label();
+            this.timeTitle = new System.Windows.Forms.Label();
+            this.seatsLbl = new System.Windows.Forms.Label();
+            this.idTitle = new System.Windows.Forms.Label();
+            this.hallTitle = new System.Windows.Forms.Label();
+            this.seatsTitle = new System.Windows.Forms.Label();
+            this.dateTitle = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tab3Footer = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -144,7 +144,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 30);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
-            this.tabControl1.Padding = new System.Drawing.Point(82, 10);
+            this.tabControl1.Padding = new System.Drawing.Point(90, 10);
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(900, 600);
             this.tabControl1.TabIndex = 4;
@@ -153,9 +153,9 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
+            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.forMovie);
-            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.getSeatsBtn);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 40);
@@ -163,7 +163,7 @@
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(892, 556);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Select Session";
+            this.tabPage1.Text = "Sessions";
             // 
             // label4
             // 
@@ -180,22 +180,11 @@
             // 
             this.forMovie.AutoSize = true;
             this.forMovie.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.forMovie.Location = new System.Drawing.Point(437, 48);
+            this.forMovie.Location = new System.Drawing.Point(437, 68);
             this.forMovie.Name = "forMovie";
             this.forMovie.Size = new System.Drawing.Size(18, 19);
             this.forMovie.TabIndex = 3;
             this.forMovie.Text = "...";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(389, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 25);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "All Sessions";
             // 
             // getSeatsBtn
             // 
@@ -219,15 +208,15 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle57.BackColor = System.Drawing.Color.SlateBlue;
-            dataGridViewCellStyle57.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle57.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle57.Padding = new System.Windows.Forms.Padding(8);
-            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.Color.SlateBlue;
-            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle57.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SlateBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(8);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SlateBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -236,67 +225,108 @@
             this.Features,
             this.Availability});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(32)))));
-            dataGridViewCellStyle58.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle58.ForeColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle58.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle58.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle58.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle58.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle58;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(32)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView1.Location = new System.Drawing.Point(28, 84);
+            this.dataGridView1.Location = new System.Drawing.Point(28, 105);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(32)))));
-            dataGridViewCellStyle59.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle59.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle59.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle59.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle59.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle59;
-            dataGridViewCellStyle60.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle60.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle60;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(32)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(836, 355);
+            this.dataGridView1.Size = new System.Drawing.Size(836, 334);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "#";
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            // 
+            // Date
+            // 
+            this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            // 
+            // Duration
+            // 
+            this.Duration.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Duration.HeaderText = "Duration";
+            this.Duration.Name = "Duration";
+            // 
+            // Features
+            // 
+            this.Features.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Features.HeaderText = "Features";
+            this.Features.Name = "Features";
+            // 
+            // Availability
+            // 
+            this.Availability.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Availability.HeaderText = "Availability";
+            this.Availability.Name = "Availability";
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
-            this.tabPage2.Controls.Add(this.label11);
-            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.tab2Title);
+            this.tabPage2.Controls.Add(this.tab2Footer);
             this.tabPage2.Controls.Add(this.getDetailsBtn);
             this.tabPage2.Controls.Add(this.lblSelectedSeats);
-            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.screen);
             this.tabPage2.Location = new System.Drawing.Point(4, 40);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(892, 556);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Select Seat(s)";
+            this.tabPage2.Text = "Seats";
             // 
-            // label3
+            // tab2Title
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Gray;
-            this.label3.Location = new System.Drawing.Point(377, 540);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(138, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "developed by can with ❤";
+            this.tab2Title.AutoSize = true;
+            this.tab2Title.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tab2Title.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.tab2Title.Location = new System.Drawing.Point(384, 43);
+            this.tab2Title.Name = "tab2Title";
+            this.tab2Title.Size = new System.Drawing.Size(125, 25);
+            this.tab2Title.TabIndex = 24;
+            this.tab2Title.Text = "Select Seat(s)";
+            // 
+            // tab2Footer
+            // 
+            this.tab2Footer.AutoSize = true;
+            this.tab2Footer.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tab2Footer.ForeColor = System.Drawing.Color.Gray;
+            this.tab2Footer.Location = new System.Drawing.Point(377, 540);
+            this.tab2Footer.Name = "tab2Footer";
+            this.tab2Footer.Size = new System.Drawing.Size(138, 13);
+            this.tab2Footer.TabIndex = 6;
+            this.tab2Footer.Text = "developed by can with ❤";
             // 
             // getDetailsBtn
             // 
@@ -322,23 +352,24 @@
             this.lblSelectedSeats.TabIndex = 3;
             this.lblSelectedSeats.Text = "You didn\'t choose any seat.";
             // 
-            // label5
+            // screen
             // 
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.label5.Location = new System.Drawing.Point(134, 90);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(625, 20);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "s c r e e n";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.screen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
+            this.screen.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.screen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.screen.Location = new System.Drawing.Point(134, 90);
+            this.screen.Name = "screen";
+            this.screen.Size = new System.Drawing.Size(625, 20);
+            this.screen.TabIndex = 1;
+            this.screen.Text = "s c r e e n";
+            this.screen.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
-            this.tabPage3.Controls.Add(this.label2);
-            this.tabPage3.Controls.Add(this.label12);
+            this.tabPage3.Controls.Add(this.tab3Footer);
+            this.tabPage3.Controls.Add(this.tab3Title);
+            this.tabPage3.Controls.Add(this.tab3Detail);
             this.tabPage3.Controls.Add(this.showSummaryBtn);
             this.tabPage3.Location = new System.Drawing.Point(4, 40);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(0);
@@ -346,6 +377,27 @@
             this.tabPage3.Size = new System.Drawing.Size(892, 556);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Details";
+            // 
+            // tab3Title
+            // 
+            this.tab3Title.AutoSize = true;
+            this.tab3Title.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tab3Title.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.tab3Title.Location = new System.Drawing.Point(369, 43);
+            this.tab3Title.Name = "tab3Title";
+            this.tab3Title.Size = new System.Drawing.Size(154, 25);
+            this.tab3Title.TabIndex = 24;
+            this.tab3Title.Text = "Enter your name";
+            // 
+            // tab3Detail
+            // 
+            this.tab3Detail.AutoSize = true;
+            this.tab3Detail.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.tab3Detail.Location = new System.Drawing.Point(300, 68);
+            this.tab3Detail.Name = "tab3Detail";
+            this.tab3Detail.Size = new System.Drawing.Size(324, 19);
+            this.tab3Detail.TabIndex = 8;
+            this.tab3Detail.Text = "Please enter your names for each seat you selected.";
             // 
             // showSummaryBtn
             // 
@@ -362,25 +414,24 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
-            this.tabPage4.Controls.Add(this.label18);
+            this.tabPage4.Controls.Add(this.tab4Title);
             this.tabPage4.Controls.Add(this.imdbRatingLbl);
-            this.tabPage4.Controls.Add(this.label20);
+            this.tabPage4.Controls.Add(this.imdbBadge);
             this.tabPage4.Controls.Add(this.movieTitleLbl);
             this.tabPage4.Controls.Add(this.movieThumbnail);
-            this.tabPage4.Controls.Add(this.button3);
-            this.tabPage4.Controls.Add(this.button2);
+            this.tabPage4.Controls.Add(this.copyButton);
             this.tabPage4.Controls.Add(this.label8);
-            this.tabPage4.Controls.Add(this.button1);
+            this.tabPage4.Controls.Add(this.confirmBtn);
             this.tabPage4.Controls.Add(this.idLbl);
             this.tabPage4.Controls.Add(this.hallLbl);
             this.tabPage4.Controls.Add(this.dateLbl);
             this.tabPage4.Controls.Add(this.timeLbl);
-            this.tabPage4.Controls.Add(this.label13);
+            this.tabPage4.Controls.Add(this.timeTitle);
             this.tabPage4.Controls.Add(this.seatsLbl);
-            this.tabPage4.Controls.Add(this.label10);
-            this.tabPage4.Controls.Add(this.label9);
-            this.tabPage4.Controls.Add(this.label7);
-            this.tabPage4.Controls.Add(this.label6);
+            this.tabPage4.Controls.Add(this.idTitle);
+            this.tabPage4.Controls.Add(this.hallTitle);
+            this.tabPage4.Controls.Add(this.seatsTitle);
+            this.tabPage4.Controls.Add(this.dateTitle);
             this.tabPage4.Location = new System.Drawing.Point(4, 40);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage4.Name = "tabPage4";
@@ -388,16 +439,16 @@
             this.tabPage4.TabIndex = 2;
             this.tabPage4.Text = "Summary";
             // 
-            // label18
+            // tab4Title
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label18.Location = new System.Drawing.Point(356, 43);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(177, 25);
-            this.label18.TabIndex = 23;
-            this.label18.Text = "Reservation Details";
+            this.tab4Title.AutoSize = true;
+            this.tab4Title.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tab4Title.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.tab4Title.Location = new System.Drawing.Point(356, 43);
+            this.tab4Title.Name = "tab4Title";
+            this.tab4Title.Size = new System.Drawing.Size(177, 25);
+            this.tab4Title.TabIndex = 23;
+            this.tab4Title.Text = "Reservation Details";
             // 
             // imdbRatingLbl
             // 
@@ -410,18 +461,18 @@
             this.imdbRatingLbl.TabIndex = 22;
             this.imdbRatingLbl.Text = "0.0";
             // 
-            // label20
+            // imdbBadge
             // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.DarkOrange;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.Control;
-            this.label20.Location = new System.Drawing.Point(272, 142);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(39, 15);
-            this.label20.TabIndex = 21;
-            this.label20.Text = "IMDB";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.imdbBadge.AutoSize = true;
+            this.imdbBadge.BackColor = System.Drawing.Color.DarkOrange;
+            this.imdbBadge.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imdbBadge.ForeColor = System.Drawing.SystemColors.Control;
+            this.imdbBadge.Location = new System.Drawing.Point(272, 142);
+            this.imdbBadge.Name = "imdbBadge";
+            this.imdbBadge.Size = new System.Drawing.Size(39, 15);
+            this.imdbBadge.TabIndex = 21;
+            this.imdbBadge.Text = "IMDB";
+            this.imdbBadge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // movieTitleLbl
             // 
@@ -443,27 +494,16 @@
             this.movieThumbnail.TabIndex = 17;
             this.movieThumbnail.TabStop = false;
             // 
-            // button3
+            // copyButton
             // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(198, 460);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(42, 45);
-            this.button3.TabIndex = 16;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(652, 460);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(42, 45);
-            this.button2.TabIndex = 15;
-            this.button2.UseVisualStyleBackColor = true;
+            this.copyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.copyButton.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.copyButton.Image = ((System.Drawing.Image)(resources.GetObject("copyButton.Image")));
+            this.copyButton.Location = new System.Drawing.Point(628, 460);
+            this.copyButton.Name = "copyButton";
+            this.copyButton.Size = new System.Drawing.Size(42, 45);
+            this.copyButton.TabIndex = 15;
+            this.copyButton.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -476,16 +516,17 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "developed by can with ❤";
             // 
-            // button1
+            // confirmBtn
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Orange;
-            this.button1.Location = new System.Drawing.Point(246, 460);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(400, 45);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Pay Now";
-            this.button1.UseVisualStyleBackColor = true;
+            this.confirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.confirmBtn.ForeColor = System.Drawing.Color.SeaGreen;
+            this.confirmBtn.Location = new System.Drawing.Point(222, 460);
+            this.confirmBtn.Name = "confirmBtn";
+            this.confirmBtn.Size = new System.Drawing.Size(400, 45);
+            this.confirmBtn.TabIndex = 13;
+            this.confirmBtn.Text = "Confirm";
+            this.confirmBtn.UseVisualStyleBackColor = true;
+            this.confirmBtn.Click += new System.EventHandler(this.confirmBtn_Click);
             // 
             // idLbl
             // 
@@ -531,16 +572,16 @@
             this.timeLbl.TabIndex = 8;
             this.timeLbl.Text = "0:00 pm";
             // 
-            // label13
+            // timeTitle
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 7F);
-            this.label13.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label13.Location = new System.Drawing.Point(405, 345);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(36, 12);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "T I M E";
+            this.timeTitle.AutoSize = true;
+            this.timeTitle.Font = new System.Drawing.Font("Segoe UI", 7F);
+            this.timeTitle.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.timeTitle.Location = new System.Drawing.Point(405, 345);
+            this.timeTitle.Name = "timeTitle";
+            this.timeTitle.Size = new System.Drawing.Size(36, 12);
+            this.timeTitle.TabIndex = 7;
+            this.timeTitle.Text = "T I M E";
             // 
             // seatsLbl
             // 
@@ -553,111 +594,71 @@
             this.seatsLbl.TabIndex = 5;
             this.seatsLbl.Text = "A1";
             // 
-            // label10
+            // idTitle
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 7F);
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label10.Location = new System.Drawing.Point(71, 345);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(21, 12);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "I D ";
+            this.idTitle.AutoSize = true;
+            this.idTitle.Font = new System.Drawing.Font("Segoe UI", 7F);
+            this.idTitle.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.idTitle.Location = new System.Drawing.Point(71, 345);
+            this.idTitle.Name = "idTitle";
+            this.idTitle.Size = new System.Drawing.Size(21, 12);
+            this.idTitle.TabIndex = 4;
+            this.idTitle.Text = "I D ";
             // 
-            // label9
+            // hallTitle
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 7F);
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label9.Location = new System.Drawing.Point(757, 345);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 12);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "H A L L";
+            this.hallTitle.AutoSize = true;
+            this.hallTitle.Font = new System.Drawing.Font("Segoe UI", 7F);
+            this.hallTitle.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.hallTitle.Location = new System.Drawing.Point(757, 345);
+            this.hallTitle.Name = "hallTitle";
+            this.hallTitle.Size = new System.Drawing.Size(37, 12);
+            this.hallTitle.TabIndex = 3;
+            this.hallTitle.Text = "H A L L";
             // 
-            // label7
+            // seatsTitle
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 7F);
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label7.Location = new System.Drawing.Point(582, 345);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 12);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "S E A T S";
+            this.seatsTitle.AutoSize = true;
+            this.seatsTitle.Font = new System.Drawing.Font("Segoe UI", 7F);
+            this.seatsTitle.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.seatsTitle.Location = new System.Drawing.Point(582, 345);
+            this.seatsTitle.Name = "seatsTitle";
+            this.seatsTitle.Size = new System.Drawing.Size(43, 12);
+            this.seatsTitle.TabIndex = 1;
+            this.seatsTitle.Text = "S E A T S";
             // 
-            // label6
+            // dateTitle
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 7F);
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label6.Location = new System.Drawing.Point(232, 345);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 12);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "D A T E ";
+            this.dateTitle.AutoSize = true;
+            this.dateTitle.Font = new System.Drawing.Font("Segoe UI", 7F);
+            this.dateTitle.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.dateTitle.Location = new System.Drawing.Point(232, 345);
+            this.dateTitle.Name = "dateTitle";
+            this.dateTitle.Size = new System.Drawing.Size(40, 12);
+            this.dateTitle.TabIndex = 0;
+            this.dateTitle.Text = "D A T E ";
             // 
-            // ID
+            // label1
             // 
-            this.ID.HeaderText = "#";
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label1.Location = new System.Drawing.Point(381, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(131, 25);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Select Session";
             // 
-            // Date
+            // tab3Footer
             // 
-            this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            // 
-            // Duration
-            // 
-            this.Duration.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Duration.HeaderText = "Duration";
-            this.Duration.Name = "Duration";
-            // 
-            // Features
-            // 
-            this.Features.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Features.HeaderText = "Features";
-            this.Features.Name = "Features";
-            // 
-            // Availability
-            // 
-            this.Availability.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Availability.HeaderText = "Availability";
-            this.Availability.Name = "Availability";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label12.Location = new System.Drawing.Point(300, 68);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(324, 19);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "Please enter your names for each seat you selected.";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label2.Location = new System.Drawing.Point(389, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 25);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "Information";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label11.Location = new System.Drawing.Point(385, 43);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(123, 25);
-            this.label11.TabIndex = 24;
-            this.label11.Text = "Select seat(s)";
+            this.tab3Footer.AutoSize = true;
+            this.tab3Footer.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tab3Footer.ForeColor = System.Drawing.Color.Gray;
+            this.tab3Footer.Location = new System.Drawing.Point(377, 540);
+            this.tab3Footer.Name = "tab3Footer";
+            this.tab3Footer.Size = new System.Drawing.Size(138, 13);
+            this.tab3Footer.TabIndex = 25;
+            this.tab3Footer.Text = "developed by can with ❤";
             // 
             // ReservationForm
             // 
@@ -700,43 +701,43 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label forMovie;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button getSeatsBtn;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label screen;
         private System.Windows.Forms.Label lblSelectedSeats;
         private System.Windows.Forms.Button getDetailsBtn;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label tab2Footer;
+        private System.Windows.Forms.Label dateTitle;
         private System.Windows.Forms.Label seatsLbl;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label idTitle;
+        private System.Windows.Forms.Label hallTitle;
+        private System.Windows.Forms.Label seatsTitle;
         private System.Windows.Forms.Label idLbl;
         private System.Windows.Forms.Label hallLbl;
         private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.Label timeLbl;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label timeTitle;
+        private System.Windows.Forms.Button copyButton;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button confirmBtn;
         private System.Windows.Forms.Label movieTitleLbl;
         private System.Windows.Forms.PictureBox movieThumbnail;
         private System.Windows.Forms.Label imdbRatingLbl;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label imdbBadge;
+        private System.Windows.Forms.Label tab4Title;
         private System.Windows.Forms.Button showSummaryBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Duration;
         private System.Windows.Forms.DataGridViewTextBoxColumn Features;
         private System.Windows.Forms.DataGridViewTextBoxColumn Availability;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label tab3Detail;
+        private System.Windows.Forms.Label tab2Title;
+        private System.Windows.Forms.Label tab3Title;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label tab3Footer;
     }
 }

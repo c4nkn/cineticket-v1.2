@@ -22,7 +22,7 @@ namespace CinemaTicket
     public partial class ReservationForm : Form
     {
         public List<string> selectedSeats = new List<string>();
-        public int selectedMovie, selectedSession, selectedHall;
+        public int selectedMovie, selectedSession, selectedHall, newId;
         bool tab2, tab3, tab4, isSessionSelected = false;
 
         public ReservationForm(int _selectedMovie)
@@ -68,6 +68,39 @@ namespace CinemaTicket
         {
             isSessionSelected = true;
             getSeatsBtn.Enabled = dataGridView1.SelectedRows.Count > 0;
+
+            if (tab2)
+            {
+                ClearSeatTab();
+
+                foreach (var seat in selectedSeats)
+                {
+                    selectedSeats.Remove(seat);
+                }
+
+                tab2 = false;
+            }
+
+            if (tab3)
+            {
+                ClearDetailsTab();
+                tab3 = false;
+            }
+
+            if (tab4)
+            {
+                using (var context = new AppDbContext())
+                {
+                    var session = context.Sessions
+                        .Where(s => s.Id == selectedSession)
+                        .Include(s => s.AssignedHall)
+                        .FirstOrDefault();
+
+                    dateLbl.Text = session.Date.ToString("dd MMMM");
+                    timeLbl.Text = session.Date.ToString("HH:mm");
+                }
+                tab4 = false;
+            }
         }
 
         public void ListSessions(List<Session> sessions)
@@ -184,6 +217,18 @@ namespace CinemaTicket
 
         private void SeatBtn_Click(object sender, EventArgs e)
         {
+            if (tab3)
+            {
+                ClearDetailsTab();
+                tab3 = false;
+            }
+
+            if (tab4)
+            {
+                seatsLbl.Text = string.Join(", ", selectedSeats);
+                tab4 = false;
+            }
+
             System.Windows.Forms.Button seatButton = sender as System.Windows.Forms.Button;
             string seatName = seatButton.Name;
 
@@ -213,6 +258,64 @@ namespace CinemaTicket
             UpdateSelectedSeatsText();
         }
 
+        private void confirmBtn_Click(object sender, EventArgs e)
+        {
+            using (var context = new AppDbContext())
+            {
+                var session = context.Sessions.FirstOrDefault(s => s.Id == selectedSession);
+
+                foreach (var seat in selectedSeats)
+                {
+                    session.ReservedSeats += (session.ReservedSeats == "") ? seat : $", {seat}";
+                }
+
+                for (int i = 0; i < selectedSeats.Count; i++)
+                {
+                    var reservation = new Reservation
+                    {
+                        Id = newId,
+                        Price = 25,
+                        SelectedSeat = selectedSeats[i],
+                        SelectedMovieId = selectedMovie,
+                        SelectedSessionId = selectedSession
+                    };
+                    context.Add(reservation);
+                }
+
+                context.SaveChanges();
+            }
+
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+            this.Owner = mainForm;
+            this.Hide();
+        }
+
+        private void ClearSeatTab()
+        {
+            foreach (Control control in tabPage2.Controls)
+            {
+                if (!(control.Name == "getDetailsBtn" || control.Name == "tab2Footer" || control.Name == "screen" || control.Name == "tab2Title" || control.Name == "lblSelectedSeats"))
+                {
+                    tabPage2.Controls.Remove(control);
+                }
+            }
+
+            selectedSeats.Clear();
+            UpdateSelectedSeatsText();
+        }
+
+        private void ClearDetailsTab()
+        {
+            foreach (Control control in tabPage3.Controls)
+            {
+                if (!(control.Name == "showSummaryBtn" || control.Name == "tab3Footer" || control.Name == "tab3Detail" || control.Name == "tab3Title")) 
+                {
+                    tabPage3.Controls.Remove(control);
+                }
+            }
+        }
+
         private void UpdateSelectedSeatsText()
         {
             string selectedSeatsText = string.Join(", ", selectedSeats);
@@ -225,7 +328,7 @@ namespace CinemaTicket
             tab3 = true;
             tabControl1.SelectedTab = tabPage3;
 
-            int startX1 = 259;
+            int startX1 = 260;
             int startY1 = 130;
             int startX2 = 350;
             int startY2 = 125;
@@ -244,12 +347,13 @@ namespace CinemaTicket
                 System.Windows.Forms.TextBox inputTF = new System.Windows.Forms.TextBox()
                 {
                     BackColor = Color.FromArgb(16, 17, 23),
+                    ForeColor = Color.White,
                     BorderStyle = BorderStyle.FixedSingle,
                     MaxLength = 50,
                     Location = new Point(startX2, y2),
-                    Size = new Size(250, 30),
-                    MaximumSize = new Size(250, 30),
-                    MinimumSize = new Size(250, 30)
+                    Size = new Size(250, 25),
+                    MaximumSize = new Size(250, 25),
+                    MinimumSize = new Size(250, 25)
                 };
 
                 tabPage3.Controls.Add(seatLbl);
@@ -264,12 +368,15 @@ namespace CinemaTicket
             tab4 = true;
             tabControl1.SelectedTab = tabPage4;
 
+            Random random = new Random();
+
             using (var context = new AppDbContext())
             {
                 var lastSelectedMovie = context.Movies
                     .Where(m => m.Id == selectedMovie)
                     .Select(m => new Movie
                     {
+                         Id = m.Id,
                          Title = m.Title,
                          Thumbnail = m.Thumbnail,
                          Genre = m.Genre,
@@ -279,6 +386,7 @@ namespace CinemaTicket
                     })
                     .FirstOrDefault();
 
+                selectedMovie = lastSelectedMovie.Id;
                 movieTitleLbl.Text = lastSelectedMovie.Title;
                 imdbRatingLbl.Text = lastSelectedMovie.ImdbRating.ToString();
                 movieThumbnail.Image = Image.FromFile(lastSelectedMovie.Thumbnail);
@@ -287,6 +395,7 @@ namespace CinemaTicket
                     .Where(s => s.Id == selectedSession)
                     .Select(s => new Session
                     {
+                        Id = s.Id,
                         Date = s.Date,
                         Features = s.Features,
                         Duration = s.Duration,
@@ -297,10 +406,20 @@ namespace CinemaTicket
                     })
                     .FirstOrDefault();
 
+                selectedSession = lastSelectedSession.Id;
+                selectedHall = lastSelectedSession.AssignedHall.Id;
                 dateLbl.Text = lastSelectedSession.Date.ToString("dd MMMM");
                 timeLbl.Text = lastSelectedSession.Date.ToString("HH:mm");
                 seatsLbl.Text = string.Join(", ", selectedSeats);
                 hallLbl.Text = lastSelectedSession.AssignedHall.Name;
+
+                do
+                {
+                    newId = random.Next(10000, 100000);
+                }
+                while (context.Reservations.Any(r => r.Id == newId));
+
+                idLbl.Text = "#" + newId.ToString();
             }
         }
 
