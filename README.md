@@ -1,4 +1,6 @@
 # CineTicket v1.2
+![image](https://github.com/c4nkn/cineticket-v1.2/assets/56227236/f72e8d65-7a3f-4775-a2c3-a049a8c7ce57)
+
 BIP2042 - Gorsel Programlama II dersi icin yapilmis olan bir sinema bilet rezervasyon sistemi uygulamasidir. .Net, EFCore ve SQLite teknolojileri kullanilarak yapilmistir.
 
 2 formdan olusur. Toplamda 8 filme kadar destekler.
