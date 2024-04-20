@@ -14,6 +14,7 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Collections.Specialized.BitVector32;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CinemaTicket
@@ -37,9 +38,11 @@ namespace CinemaTicket
                     .Include(s => s.AssignedHall)
                     .Select(s => new Session
                     {
+                        Id = s.Id,
                         Date = s.Date,
                         Features = s.Features,
                         Duration = s.Duration,
+                        ReservedSeats = s.ReservedSeats,
                         AssignedHallId = s.AssignedHallId,
                         AssignedHall = s.AssignedHall
                     })
@@ -50,12 +53,12 @@ namespace CinemaTicket
                     .Select(m => m.Title)
                     .FirstOrDefault();
 
-                movieTitleLabel.Text = selectedMovieName;
+                forMovie.Text = "for: " + selectedMovieName;
                 ListSessions(filteredSessions);
             }
 
             getSeatsBtn.Enabled = false;
-            movieTitleLabel.Left = (this.Width - movieTitleLabel.Width) / 2;
+            forMovie.Location = new Point(this.ClientSize.Width / 2 - forMovie.Width / 2, forMovie.Location.Y);
             tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
             tabControl1.Font = new Font("Segoe UI", 9, FontStyle.Regular);
             tabControl1.DrawItem += new DrawItemEventHandler(this.tabControl1_DrawItem);
@@ -77,11 +80,14 @@ namespace CinemaTicket
 
                     string assignedHall = session.AssignedHall?.Name ?? "Not Available";
                     string features = session.Features ?? "Not Available";
-                    int availableSeatsCount = session.AssignedHall.TotalSeats - session.AssignedHall.ReservedSeats.Count();
+
+                    List<string> reservedSeats = session.ReservedSeats.Split(',').Select(seat => seat.Trim()).ToList();
+                    int availableSeatsCount = session.AssignedHall.TotalSeats - reservedSeats.Count;
                     string availability = availableSeatsCount.ToString() + " seat(s) left.";
 
                     dataGridViewRow.CreateCells(
                         dataGridView1,
+                        session.Id,
                         session.Date,
                         session.Duration,
                         features,
@@ -90,10 +96,10 @@ namespace CinemaTicket
 
                     if (availableSeatsCount < 10)
                     {
-                        dataGridViewRow.Cells[3].Style.ForeColor = Color.IndianRed;
+                        dataGridViewRow.Cells[4].Style.ForeColor = Color.IndianRed;
                     } else
                     {
-                        dataGridViewRow.Cells[3].Style.ForeColor = Color.Green;
+                        dataGridViewRow.Cells[4].Style.ForeColor = Color.Green;
                     }
 
                     dataGridView1.Rows.Add(dataGridViewRow);
@@ -106,40 +112,40 @@ namespace CinemaTicket
             tab2 = true;
             tabControl1.SelectedTab = tabPage2;
 
-            if (isSessionSelected)
+            if (isSessionSelected && dataGridView1.SelectedRows.Count > 0)
             {
-                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-
-                int selectedSessionId = dataGridView1.SelectedRows[0].Index + 1;
+                int selectedRowIndex = dataGridView1.SelectedRows[0].Index;
+                int selectedSessionId = Convert.ToInt32(dataGridView1.Rows[selectedRowIndex].Cells[0].Value);
                 selectedSession = selectedSessionId;
 
                 using (var context = new AppDbContext()) {
                     var selectedSession = context.Sessions
+                        .Where(s => s.Id == selectedSessionId)
                         .Include(s => s.AssignedHall)
-                        .FirstOrDefault(s => s.Id == selectedSessionId);
+                        .FirstOrDefault();
 
                     var assignedHall = context.Halls
                         .Where(m => m.Id == selectedSession.AssignedHallId)
                         .FirstOrDefault();
 
-                    DrawSeats(assignedHall.TotalSeats, assignedHall.ReservedSeats, tabPage2);
+                    DrawSeats(selectedSession.ReservedSeats, tabPage2);
                 }
             }
         }
 
-        private void DrawSeats(int totalSeats, string _reservedSeats, TabPage tabPage)
+        private void DrawSeats(string _reservedSeats, TabPage tabPage)
         {
-            List<string> reservedSeats = _reservedSeats.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            
+            List<string> reservedSeats = _reservedSeats.Split(',').Select(seat => seat.Trim()).ToList();
+
             int rowSize = 7;
             int columnSize = 12;
 
-            int buttonWidth = 40;
-            int buttonHeight = 40;
+            int buttonWidth = 35;
+            int buttonHeight = 35;
             int spacing = 5;
 
             int startX = (tabPage.Width - (columnSize * (buttonWidth + spacing))) / 2;
-            int startY = 85;
+            int startY = 135;
 
             for (int i = 0; i < rowSize; i++)
             {
@@ -164,7 +170,6 @@ namespace CinemaTicket
                     if (reservedSeats.Contains(seatName))
                     {
                         seatButton.Image = Image.FromFile("..\\..\\Images\\TakenSeat.png");
-                        seatButton.Enabled = false;
                     }
                     else
                     {
@@ -193,6 +198,18 @@ namespace CinemaTicket
                 seatButton.Image = Image.FromFile("..\\..\\Images\\SelectedSeat.png");
             }
 
+            if (selectedSeats.Count > 0)
+            {
+                getDetailsBtn.Enabled = true;
+                getDetailsBtn.FlatAppearance.BorderColor = Color.SeaGreen;
+                getDetailsBtn.ForeColor = Color.SeaGreen;
+            } else if (selectedSeats.Count == 0)
+            {
+                getDetailsBtn.Enabled = false;
+                getDetailsBtn.FlatAppearance.BorderColor = Color.DimGray;
+                getDetailsBtn.ForeColor = Color.Gray;
+            }
+
             UpdateSelectedSeatsText();
         }
 
@@ -208,23 +225,37 @@ namespace CinemaTicket
             tab3 = true;
             tabControl1.SelectedTab = tabPage3;
 
-            int startX = 50;
-            int startY = 115;
-            int y = startY;
+            int startX1 = 259;
+            int startY1 = 130;
+            int startX2 = 350;
+            int startY2 = 125;
+            int y1 = startY1;
+            int y2 = startY2;
 
             for (int i = 0; i < selectedSeats.Count; i++)
             {
-                System.Windows.Forms.TextBox inputTF = new System.Windows.Forms.TextBox()
+                System.Windows.Forms.Label seatLbl = new System.Windows.Forms.Label()
                 {
-                    MaxLength = 50,
-                    Location = new Point(startX, y),
-                    Size = new Size(250, 25),
-                    MaximumSize = new Size(250, 25),
-                    MinimumSize = new Size(250, 25)
+                    ForeColor = Color.White,
+                    Location = new Point(startX1, y1),
+                    Text = $"Seat {selectedSeats[i]}:"
                 };
 
+                System.Windows.Forms.TextBox inputTF = new System.Windows.Forms.TextBox()
+                {
+                    BackColor = Color.FromArgb(16, 17, 23),
+                    BorderStyle = BorderStyle.FixedSingle,
+                    MaxLength = 50,
+                    Location = new Point(startX2, y2),
+                    Size = new Size(250, 30),
+                    MaximumSize = new Size(250, 30),
+                    MinimumSize = new Size(250, 30)
+                };
+
+                tabPage3.Controls.Add(seatLbl);
                 tabPage3.Controls.Add(inputTF);
-                y += 30;
+                y1 += 45;
+                y2 += 45;
             }
         }
 
